@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+            color: white;
+
+        }
+    </style>
+</head>
+<body>
+<h1>Nacionalidade</h1>
+País de de origem <input type="text" name="nac" id="nac">
+<input type="button" value="Verificar" onclick="vistoria()">
+<div id="res">
+
+</div>
+<script>
+    function vistoria(){
+    var na = window.document.getElementById('nac')
+    var res = window.document.getElementById('res')
+    var ps = String(na.value)
+    if (ps == "Brasil") {
+        res.innerText = "Você é Brasileiro"
+    } else {
+        res.innerText = "Você é Estrangeiro"
+    }
+
+    }
+    
+</script>
+</body>
+</html>

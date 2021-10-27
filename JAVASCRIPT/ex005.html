@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro exemplo com Dom</title>
+    <style>
+        body {
+            background-color: rgba(24, 24, 161, 0.76);
+            color: white;
+            font: normal 10pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chegue tome</h1>
+    <p>Aqui vai o resultado </p>
+    <p>Apredendo a usar o <strong>DOM</strong> em Javascript </p>
+    <div id="msg">Clique em mim</div>
+    <script>
+        /*Criando a variavel corpo para falar que ele representa a parte do corpo do documento e dar para fazer alterações*/
+        var corpo = window.document.body
+        /*Criando a variavel p1 para representar os elementos da tag  p e indicando 0 pois é o prineiro elemento da tag p que começa a contragem com 0 */
+        var p1 = window.document.getElementsByTagName('p')[0]
+        
+        /*Fazendo o metodo dom que nem uma arvore vai seguindo a variavel corpo depois na ordem em diante para indicar o fundo do site*/
+        corpo.style.background = 'black'
+        /*Está falando para adicionar o elemento txt junto com o texto indicado na parte p1 com o inner text com a variavel p1 */
+        window.document.write('Está escrito assim: ' + p1.innerText)
+        /*Fazendo o metodo acima do nome só que comm o elemento ID  que foi acima na tag div*/
+        var d = window.document.getElementById('msg')
+        /*Para mudar o fundo da variavel d */
+        d.style.background = 'green'
+        /*Mudando esta linha especificamente para estou aguardando */
+        d.innerText = 'Estou aguardando'
+        /*Para mudar o fundo do elemento indicado na variavel p1*/
+        p1.style.color = 'blue'
+    </script>
+</body>
+</html>
