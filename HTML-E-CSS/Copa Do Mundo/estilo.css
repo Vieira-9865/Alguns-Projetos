@@ -1,0 +1,80 @@
+ 
+@font-face {
+	font-family: 'vapo';
+	src: url('fonts/coolvetica rg.ttf') format('truetype');
+}
+
+body {
+	background-image:url('plano_fundo.jpg'); 
+	background-repeat: no-repeat;
+	background-size: 100%;
+	font-size:20px;
+	font: normal 12px/30px 'vapo';
+	/*shorthand font
+         font: font-style --> font weight --> font-size --> font-family;
+         
+         */  
+}
+
+h1 
+{
+	font-size:70px;
+	text-align:center;
+}
+
+#lista
+{
+	position: relative;
+	float: left;
+	color: black;
+	font-size: 17px;
+	list-style-type: circle;
+}
+
+.nomesContato
+{
+	font-size: 22px;
+	color: black;
+}
+
+.nomesCamisa
+{
+	font-size: 17px;
+	color:black;
+}
+
+a.menu
+{
+	font-size:30px;
+}
+
+a:link 
+{
+	text-decoration:none;
+}
+
+a:visited 
+{
+	color:#000000;	
+} 
+
+a:visited 
+{
+	text-decoration:none;
+}
+
+div.produto 
+{
+	height:500px;
+	width:500px;
+	float:left;
+}
+
+div.descricao 
+{
+	height:600px;
+	width:600px;
+	float:left;
+	font-size: 22px;
+	color: black;
+}

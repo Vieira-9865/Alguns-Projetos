@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@font-face {
+    /*
+    Em HTML é id = em CSS =  #
+    Em HTML é class = em CSS =  .
+    
+    */
+    font-family: 'tome';
+    src: url('fonts/Vampire\ Wars.otf') format('opentype'), url('fonts/Vampire\ Wars.ttf') format('truetype');
+}
+body {
+    background-image:linear-gradient(to left,black, #6cacd3) ;
+    color: #943535;
+    
+}
+p{
+    text-align: justify;
+}
+main{
+background-color: white;
+border-radius: 10px;
+padding: 10px;
+text-align: center;
+width: 700px;
+margin: auto;
+}
+h1#principal {
+    color: yellowgreen;
+    background-color: turquoise;
+}

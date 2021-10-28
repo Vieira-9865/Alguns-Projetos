@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pseudo-classes e elementos</title>
+
+    <style>
+        div p {
+            display: none;
+        }
+
+        div:hover p {
+            display: block;
+            background-color: yellow;
+        }
+        #vapo{
+            text-align: center;
+            height: 80px;
+            width: 200px;
+            align-items: center;
+            /*Igualaria as margens*/
+            margin: auto;
+        }
+        body {
+            background-color: violet;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Conteúdo especial</h1>
+    <div>
+        Passe o mouse aqui
+
+        <p id="vapo">RECEBEU UMA PIROCADA ENQUANTO LIA</p>
+    </div>
+    <p>Veja o conteudo oculto aparecendo!</p>
+</body>
+</html>

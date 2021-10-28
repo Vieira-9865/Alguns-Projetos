@@ -1,0 +1,26 @@
+*Nada me impede de usar o css interno, externo e o inline no mesmo código
+
+Simetria 
+Cor
+
+Cores primarias
+amarelo
+vermelho
+azul
+
+Cores secundarias
+verde
+laranja
+violeta
+
+Cores terciarias
+Sempre colocar primeiro o nome da cor primaria na cor terciaria
+
+amarelo-esverdeado
+amarelo-alaranjado
+vermelho-alaranjado
+vermelho-arroxeado
+azul-esverdeado
+azul-arroxeado
+
+Temperaturas de cores

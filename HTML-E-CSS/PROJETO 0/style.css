@@ -1,0 +1,232 @@
+@charset "UTF-8";
+/*Importando fonte através de um link */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/*Importando fonte através do arquivo deixado no diretorio*/
+@font-face {
+    font-family:'Android';
+    src: url('fontes/idroid.otf') format('opentype');
+    /*Peso da fonte*/
+    font-weight: normal;
+}
+:root{
+    /*o --"": ; serve para você uma cor, fonte ou um elemento em especifico para você não precisar alterar todos esses elementos em cada parte do site*/
+--cor0:#ebe5c5;
+--cor01:#83e1ad;
+--cor02:#3ddc84;
+--cor03:#2fa866;
+--cor04:#1a5c37;
+--cor05:#063d1e; 
+
+--fonte-android:'Android', sans-serif;
+--fontepadrao: Arial, Verdana, Helvetica, sans-serif;
+--fontedestaque:'Bebas Neue', cursive;
+}
+/*A parte *{ serve para você definir o que será aplicado em toda parte do site*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: var(--cor0);
+}
+body a.externo::after{
+    /*Para colocar este elemento no caso emoji depois dos links que tem a classe externo*/
+    content: '\1F517';
+}
+main{
+    /*Serve para definir a largura maxima  e minima do seu conteudo*/
+min-width:300px ;
+max-width: 1000px;     
+margin: auto;
+padding: 20px;
+background-color: white ;
+font-family: var(--fontepadrao);
+
+}
+main p {
+    /*Configura a margem nessa seguinte ordem: cima direita baixo esquerda */
+    /*Já que o valor de cima e direita é o msm de baixo e esquerda só vou precisar definir esses dois valores, mas caso quiser definir de forma diferente segue a ordem acima*/
+    margin: 15px 0px ;
+    text-align: justify;
+    /*Em todo paragrafo ele vai dar um espaço em todos os inicios dos paragrafos ou seja fazendo a indentação*/
+    text-indent: 30px;
+    font-size: 1em;
+    /*Altura da linha*/
+    line-height: 2em;
+}
+
+
+main a {
+    color: var(--cor05);
+    font-weight: bold;
+    background-color: var(--cor01);
+    padding: 2px 6px;
+    text-decoration: none;
+}
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor04);
+}
+main h1 {
+    color: var(--cor05);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    font-size:1.8em ;
+}
+main h2{
+    font-family:var(--fonte-android);
+    color: var(--cor04);
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor01), transparent);
+    text-indent: 8px;
+}
+main img {
+    width: 100%;
+}
+/*classe: .
+id: # 
+*/
+main img.peq {
+    /*Já que a imagem tem 400px para manter uma boa resolução  a largura vai ficar no maximo até 350px*/
+    max-width: 350px;
+    /*A declaração display: block faz com que o elemento HTML seja renderizado como bloco, tal como os parágrafos e os cabeçalhos o são.*/
+    display: block;
+    margin: auto;
+}
+
+header {
+background-image: linear-gradient(to bottom, #063d1e, #2fa866 );
+min-height: 150px;
+text-align: center;
+/*O padding-top serve para definir os valores da espessura da área de preenchimento. Se a esquerda for omitida, é o mesmo que a direita.*/
+padding-top: 40px;
+
+}
+header h1  {
+    color: white;
+    font-family: var(--fontedestaque);
+    /*Para dar um espaçamento para baixo*/
+    margin-bottom: 20px;
+    /*Para aumentar o tamanho da fonte*/
+    font-size: 3em;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.575);
+    font-weight: normal;
+    
+}
+header p {
+    color: white;
+    font-family: var(--fontepadrao);
+    font-size: 1.2em;
+    max-width: 500px;
+    /*O padding-left e o padding-right serve para dar um espaçamento no lado esquerdo e direito entre o limite da página*/
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    /*Para centralizar o conteudo pois quando define uma largura ele vira um bloco assim colocando o margin auto ele vai centralizar o elemento */
+    margin: auto;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.575);
+
+}
+nav {
+    background-image: linear-gradient(to top, #0c6935, #2EA765 );
+    
+    font-family: var(--fontepadrao);
+    
+    text-align: left;
+    padding-bottom: 10px;
+    
+    
+}
+nav a {
+    color: var(--cor01);
+    /*Espaçamento entre as palavras*/
+    padding: 10px;
+    
+    /*Para retirar toda decoração dos links do menu automaticamente tirando o sublinhado*/
+    text-decoration: none;
+    /*Para ter um arrendodamento da borda */
+    border-radius: 5px;
+    /*Sombra no texto*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.253);
+    /*Peso da fonte*/
+    font-weight: bold;
+    /*Quando passar o mouse por cima ele fazer a transição no tempo configurado nessa linha*/
+    transition-duration: 0.4s;
+    
+}
+/*Para quando o usuario passar o mouse encima das opções do menu*/
+nav a:hover{
+    background-color: var(--cor03);
+    color: var(--cor05);
+    
+}
+
+footer{
+    background-color:var(--cor05);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+footer a {
+    color: var(--cor01);
+    text-decoration: none;
+    font-weight: bold;
+}
+footer a:hover {
+    text-decoration: underline;
+
+}
+aside {
+    background-color: var(--cor01);
+    padding: 10px ;
+    /*Arredondamento da borda*/
+    border-radius: 10px;
+    /*3px deslocamenyo horizontal*/
+    /*3px deslocamento vertical*/
+    /*8px raio de desfoque*/
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+}
+aside ul {
+    /*Serve para adicionar um estilo para a lista */
+    /* o código 00A0 serve para dar um espaçamento*/
+    /*Não é compativel com todos os navegadores*/
+    list-style-type: '\2714\00A0\00A0';
+    /*Isso serve para alterar a posição da lista indefinida dentro do background  */
+    list-style-position: inside;
+    /*Define o numero de colunas para a lista */
+    columns: 2;
+    
+}
+aside  h3 {
+    background-color: var(--cor04);
+    color: white;
+    padding: 10px;
+    /*Tirando a margem -10px encima*/
+    /*Tirando a margem -10px na direita*/
+    /*Tirando nada então 0px embaixo*/
+    /*Tirando a margem -10px na esquerda*/
+    margin: -10px -10px 0px -10px;
+    /*Arredondando 10 px encima na direita e esquerda*/
+    border-radius: 10px 10px 0px 0px;
+
+}
+div.video{
+    background-color: var(--cor05);
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom:56.7%;
+
+    position: relative;
+    
+}
+div.video  iframe{
+    position: absolute;
+    /*a distancia do canto superior esquerdo até o quadrado verde do site */
+    top:5% ;
+    /*distancia  do verical até o vertical do quadrado verde do site */
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+/*Poderia fazer isso tambem footer > p > a {} que seria mexer no link dentro do paragrafo*/
