@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Registrar", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Logon", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+       @* <li><div class="container">
+        <input type="checkbox" id="toggle">
+    </div>
+</li>*@
+    </ul>
+}
+@*<style>
+    
+
+   
+
+    .container {
+        width: 100px;
+        height: 40px;
+        
+        margin-bottom: 20px;
+    }
+
+    #toggle {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 40px;
+        width: 75px;
+        background-color: black;
+        position: absolute;
+        right: 0;
+        border-radius: 20px;
+        
+        cursor: pointer;
+    }
+
+        #toggle:after {
+            content: "";
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: #ffffff;
+            top: 5px;
+            left: 5px;
+            border-radius: 50%;
+        }
+
+   
+
+    .dark-theme {
+        background-color: #15181f;
+        color: #e5e5e5;
+    }
+
+        .dark-theme #toggle {
+            background-color: white;
+        }
+
+            .dark-theme #toggle::after {
+                background-color: transparent;
+                box-shadow: 10px 10px #15181f;
+                top: -4px;
+                left: 30px;
+            }
+</style>
+<script>
+    document.getElementById("toggle").addEventListener("click", function () {
+        document.getElementsByTagName('body')[0].classList.toggle("dark-theme");
+
+    })
+</script>
+*@

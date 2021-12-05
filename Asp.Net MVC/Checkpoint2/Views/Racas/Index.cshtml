@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Checkpoint2.Models.Racas>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    th {
+        font-size: 15px;
+    }
+
+    td {
+        font-size: 19px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
+</style>
+<h2>Cadastro de raças</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Raça", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Raca)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Raca)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdRaca }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdRaca }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdRaca })
+        </td>
+    </tr>
+}
+
+</table>
