@@ -1,0 +1,79 @@
+﻿@model IEnumerable<TestaBotao.Models.Caes>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    th {
+        font-size: 15px;
+    }
+
+    td {
+        font-size: 19px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
+</style>
+<h2>Cadastro de Cães</h2>
+
+<p>
+    @Html.ActionLink("Adicionar novo cão", "Create")
+    <h3>
+        Filtrar pela raça:<h3>
+
+            @using (Html.BeginForm())
+            {@Html.DropDownList("IdRacaFiltro", new SelectList(ViewBag.listaRacas, "IdRaca", "Raca"), "Selecione a raça", new { htmlAttributes = new { @class = "form-control" } })
+            <input type="submit" value="Filtrar">}
+            <!--O begin form vai servir para renderizar esse conteudo na view apenas quando rodar o código-->
+            <!--Vai servir para  atualizar a página e não mudar as alterações e o value para o texto dentro do botão-->
+
+</p>
+
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_Cao)
+        </th>
+        <!--Vai servir mostrar os dados na tabela do index-->
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_Dono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Raca)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Cao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Dono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Raca)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdCao }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.IdCao }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.IdCao })
+            </td>
+        </tr>
+    }
+
+
+</table>

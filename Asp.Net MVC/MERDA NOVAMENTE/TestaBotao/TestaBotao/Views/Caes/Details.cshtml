@@ -1,0 +1,58 @@
+﻿@model TestaBotao.Models.Caes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Caes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_Cao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_Cao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_Dono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_Dono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Raca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRaca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRaca)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
