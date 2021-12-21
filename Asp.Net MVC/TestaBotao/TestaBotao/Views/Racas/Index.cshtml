@@ -1,0 +1,37 @@
+﻿@model IEnumerable<TestaBotao.Models.Racas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cadastro de Raças</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <input type="button" class="btn btn-primary" value="Adicionar Dono" onclick="location.href='@Url.Action("Index", "Racas")'" /> 
+    
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Raca)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Raca)
+    </td>
+    <td>
+        <input type="button" class="btn btn-success" value="Editar" onclick="location.href='@Url.Action("Edit", "Racas", new { id = item.IdRaca })'" /> |
+        <input type="button" class="btn btn-info" value="Detalhes" onclick="location.href='@Url.Action("Details", "Racas", new { id = item.IdRaca })'" /> |
+        <input type="button" class="btn btn-danger" value="Deletar" onclick="location.href='@Url.Action("Delete", "Racas", new { id = item.IdRaca })'" /> |
+    
+    </td>
+</tr>
+}
+
+</table>

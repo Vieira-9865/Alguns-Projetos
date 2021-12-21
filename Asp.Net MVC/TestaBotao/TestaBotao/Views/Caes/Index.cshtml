@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TestaBotao.Models.Caes>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    th {
+        font-size: 15px;
+    }
+
+    td {
+        font-size: 19px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
+</style>
+<h2>Cadastro de Cães</h2>
+
+<p>
+    @*@Html.ActionLink("Adicionar novo cão", "Create")*@
+    @*Vai ser um botão com a classe especifica do bootstrap como valor vai adicionar cão e clicando vai retornar a url que primeiro valor vai ser a ação
+    e a outra vai ser o controlador*@
+    <input type="button" class="btn btn-primary" value="Adicionar novo cão" onclick="location.href='@Url.Action("Create", "Caes")'" />
+    <h3>
+        Filtrar pela raça:<h3>
+
+            @using (Html.BeginForm())
+            {@Html.DropDownList("IdRacaFiltro", new SelectList(ViewBag.listaRacas, "IdRaca", "Raca"), "Selecione a raça", new { htmlAttributes = new { @class = "form-control" } })
+            <input type="submit" value="Filtrar" class="btn btn-primary" >}
+            <!--O begin form vai servir para renderizar esse conteudo na view apenas quando rodar o código-->
+            <!--Vai servir para  atualizar a página e não mudar as alterações e o value para o texto dentro do botão-->
+
+</p>
+
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_Cao)
+        </th>
+        <!--Vai servir mostrar os dados na tabela do index-->
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_Dono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Raca)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Cao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Dono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Raca)
+            </td>
+
+            <td>
+                <input type="button" class="btn btn-success" value="Editar" onclick="location.href='@Url.Action("Edit", "Caes", new { id = item.IdCao })'" /> |
+                <input type="button" class="btn btn-info" value="Detalhes" onclick="location.href='@Url.Action("Details", "Caes", new { id = item.IdCao })'" /> |
+                <input type="button" class="btn btn-danger" value="Deletar" onclick="location.href='@Url.Action("Delete", "Caes", new { id = item.IdCao })'" /> |
+            </td>
+        </tr>
+    }
+
+
+</table>

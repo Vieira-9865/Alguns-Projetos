@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="corpo">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Pet-Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Donos", "Index", "Donos")</li>
+                    <li>@Html.ActionLink("Cães", "Index", "Caes")</li>
+                    <li>@Html.ActionLink("Raças", "Index", "Racas")</li>
+                </ul>
+               @* @Html.Partial("_LoginPartial")**@
+                <ul class="nav navbar-nav navbar-right">
+                    <header>
+                        <input type="checkbox" id="toggle01" class="darkmode" title="darkmode switch">
+                    </header>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+<style>
+
+    header {
+        width: 100px;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    #toggle01 {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 40px;
+        width: 75px;
+        background-color: black;
+        position: absolute;
+        right: 0;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-right: 27px;
+        margin-top: 9px;
+    }
+
+        #toggle01:after {
+            content: "";
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: #ffffff;
+            top: 5px;
+            left: 5px;
+            border-radius: 50%;
+        }
+
+    .corpo{
+        background-image: linear-gradient(to bottom, #e5e2f3, #4e50b6, #2312b8 90% );
+        background-attachment: fixed;
+        color:black;
+        
+    }
+
+    .darkmode  {
+        background-image: linear-gradient(to bottom, black, black, black 90% );
+        background-attachment: fixed;
+        color:white;
+        
+    }
+
+        .darkmode #toggle01 {
+            background-image: linear-gradient(to bottom, white, white, white 90% );
+        }
+
+            .darkmode #toggle01::after {
+                background-color: transparent;
+                box-shadow: 10px 10px black;
+                top: -4px;
+                left: 30px;
+            }
+
+        .darkmode .jumbotron {
+            color: white;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+        }
+    
+    
+      
+</style>
+
+<script>
+
+    @* // Este arquivo eu uso para inicializar o darkmode com a função descrita posteriormente darkmode_init()no evento DOMContentLoaded .
+    document.addEventListener('DOMContentLoaded', function () {
+        darkmode_init();
+    });
+
+    function darkmode_init() {
+        //Dentro dessa função estou fazendo referencia ao botão
+        let darkmodeSwitch = document.querySelector('header .darkmode');
+        //Estabelecer a funcionalidade do cookie 
+        let darkmodeCookie = {
+            // set para definir o cookie darkmode
+            set: function (key, value, time, path, secure = false) {
+                let expires = new Date();
+                expires.setTime(expires.getTime() + time);
+                var path = (typeof path !== 'undefined') ? pathValue = 'path=' + path + ';' : '';
+                var secure = (secure) ? ';secure' : '';
+
+                document.cookie = key + '=' + value + ';' + path + 'expires=' + expires.toUTCString() + secure;
+            },
+            //get para ler se o cookie darkmode existe
+            get: function () {
+                // dentro do document.
+                let keyValue = document.cookie.match('(^|;) ?darkmode=([^;]*)(;|$)');
+                // se keyvalue for true vai retornar key value na posição 2 senão vai ser nulo
+                return keyValue ? keyValue[2] : null;
+            }
+            // remove para deletar o cookie darkmode
+            remove: function () {
+                document.cookie = 'darkmode=; Max-Age=0; path=/';
+            }
+        };
+
+        //eu verifico se o cookie darkmode existe. Em caso afirmativo, adiciono uma classe ativa ao switch e adiciono uma classe darkmode ao body.
+        if (darkmodeCookie.get() == 'true') {
+            darkmodeSwitch.classList.add('active');
+            document.body.classList.add('darkmode');
+        }
+
+        // Esta parte do script adiciona um ouvinte de evento ao switch para alternar as classes para si e para o corpo.
+
+        darkmodeSwitch.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.target.classList.toggle('active');
+            document.body.classList.toggle('darkmode');
+
+            //verifico se o corpo tem uma classe darkmode após o toggle acima . Se tiver, configurei o cookie darkmode, neste exemplo expirando em um mês (2.628.000.000 milisegundos). O último parâmetro de darmodeCookie.set() deve ser definido como verdadeiro se a página é SSL criptografada. Para teste local, apenas defina-o como falso . O segundo parâmetro é o valor, eu uso apenas true como string.
+            if (document.body.classList.contains('darkmode')) {
+                darkmodeCookie.set('darkmode', 'true', 2628000000, '/', false);
+            }
+            //Se o cookie tiver que ser removido, porque o corpo não contém nenhuma classe darkmode, eu uso darkmodeCookie.remove()para excluir o cookie darkmode.
+            else {
+                darkmodeCookie.remove();
+            }
+        });
+    }
+   *@
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        darkmode_init();
+    });
+
+    function darkmode_init() {
+        let darkmodeSwitch = document.querySelector('header .darkmode');
+
+        let darkmodeCookie = {
+            set: function (key, value, time, path, secure = false) {
+                let expires = new Date();
+                expires.setTime(expires.getTime() + time);
+                var path = (typeof path !== 'undefined') ? pathValue = 'path=' + path + ';' : '';
+                var secure = (secure) ? ';secure' : '';
+
+                document.cookie = key + '=' + value + ';' + path + 'expires=' + expires.toUTCString() + secure;
+            },
+            get: function () {
+                let keyValue = document.cookie.match('(^|;) ?darkmode=([^;]*)(;|$)');
+                return keyValue ? keyValue[2] : null;
+            },
+            remove: function () {
+                document.cookie = 'darkmode=; Max-Age=0; path=/';
+            }
+        };
+
+
+        if (darkmodeCookie.get() == 'true') {
+            darkmodeSwitch.classList.add('active');
+            document.body.classList.add('darkmode');
+        }
+
+
+        darkmodeSwitch.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.target.classList.toggle('active');
+            document.body.classList.toggle('darkmode');
+
+            if (document.body.classList.contains('darkmode')) {
+                darkmodeCookie.set('darkmode', 'true', 2628000000, '/', false);
+            }
+            else {
+                darkmodeCookie.remove();
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<style>
+
+
+
+
+        .container1 {
+            width: 100px;
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        #toggle01 {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 40px;
+            width: 75px;
+            background-color: black;
+            position: absolute;
+            right: 0;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+            #toggle01:after {
+                content: "";
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                background-color: #ffffff;
+                top: 5px;
+                left: 5px;
+                border-radius: 50%;
+            }
+
+
+
+        .dark-theme {
+            background-color: #15181f;
+            color: #e5e5e5;
+        }
+
+            .dark-theme #toggle01 {
+                background-color: white;
+            }
+
+                .dark-theme #toggle01::after {
+                    background-color: transparent;
+                    box-shadow: 10px 10px #15181f;
+                    top: -4px;
+                    left: 30px;
+                }
+    </style>
+    <script>
+        
+
+
+        document.getElementById("toggle01").addEventListener("click", function () {
+            document.getElementsByTagName('body')[0].classList.toggle01("dark-theme");
+
+
+        })*@
+        @*var escuro = 0;
+        if (document.getElementById("toggle01").checked) {
+            set.escuro = 1;
+            document.cookie = 'escuro', expires = "Thu, 1 Jan 2022 12: 00: 00 UTC";
+        } else {
+            document.cookie = 'escuro = 0', expires = "Thu, 1 Jan 2022 12: 00: 00 UTC";
+        }*@
+        @*if (escuro > 1) {
+            set.escuro = 0;
+        }
+        if (escuro == 1) {
+            
+        } else if (escuro == 0) {
+            
+        }*@
+
+
+
+
+   @* </script>*@
+
+</body>
+</html>

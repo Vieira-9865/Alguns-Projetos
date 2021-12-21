@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+
+
+
+<style>
+    .principal {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bold;
+        
+        text-align:center;
+    }
+        .principal2 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
+        }
+    .lead {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight:bold;
+    }
+    #btraca {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight:bold;
+    }
+    .col-md-4 {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bold;
+        font-size:1.2em;
+    }
+    .jumbotron {
+        background-color: #AAA9DB;
+    }
+    
+</style>
+
+<div class="jumbotron" >
+    <h1 class="principal">FourStar Pet-Shop</h1>
+    <h4 class="lead">Bem vindo ao FourStar Pet-Shop aqui temos atendimento de profissionais capacitados na área, Venham visitar o nosso estabelecimento!</h4>
+</div>
+<hr />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="principal2">Cadastro dos Donos</h2>
+        <p>
+            No botão abaixo você Admin terá a possibilidade de adicionar o dono do seu cão.
+        </p>
+        <input type="button" id="btraca" class="btn btn-primary" value="Donos &raquo; " onclick="location.href='@Url.Action("Index", "Donos")'" />
+    </div>
+
+    <div class="col-md-4">
+        <h2 class="principal2">Cadastro dos Cães</h2>
+        <p>No botão abaixo você Admin terá a possibilidade de adicionar o nome do seu cão.</p>
+        <input type="button" id="btraca" class="btn btn-success" value="Cães &raquo; " onclick="location.href='@Url.Action("Index", "Caes")'" />
+    </div>
+    <div class="col-md-4">
+        <h2 class="principal2">Cadastro das Raças</h2>
+        <p>No botão abaixo você Admin terá a possibilidade de adicionar a raça do seu cão.</p>
+        <input type="button" id="btraca" class="btn btn-warning" value="Raças &raquo; " onclick="location.href='@Url.Action("Index", "Racas")'" />
+    </div>
+</div>
+

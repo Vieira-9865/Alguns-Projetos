@@ -1,0 +1,173 @@
+﻿@using Microsoft.AspNet.Identity
+<head>
+
+</head>
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Registrar", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Logon", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        @*<li>
+            <div class="container1">
+                <input type="checkbox" id="toggle">
+            </div>
+        </li>*@
+    </ul>
+}
+@*<style>
+
+
+
+
+    .container1 {
+        width: 100px;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    #toggle {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 40px;
+        width: 75px;
+        background-color: black;
+        position: absolute;
+        right: 0;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+        #toggle:after {
+            content: "";
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: #ffffff;
+            top: 5px;
+            left: 5px;
+            border-radius: 50%;
+        }
+
+
+
+    .dark-theme {
+        background-color: #15181f;
+        color: #e5e5e5;
+    }
+
+        .dark-theme #toggle {
+            background-color: white;
+        }
+
+            .dark-theme #toggle::after {
+                background-color: transparent;
+                box-shadow: 10px 10px #15181f;
+                top: -4px;
+                left: 30px;
+            }
+</style>
+<script>
+    document.getElementById("toggle").addEventListener("click", function () {
+        document.getElementsByTagName('body')[0].classList.toggle("dark-theme");
+
+    })
+</script>*@
+
+
+
+
+
+
+<!--<style>
+
+
+
+
+    .container1 {
+        width: 100px;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    #toggle01 {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 40px;
+        width: 75px;
+        background-color: black;
+        position: absolute;
+        right: 0;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+        #toggle01:after {
+            content: "";
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: #ffffff;
+            top: 5px;
+            left: 5px;
+            border-radius: 50%;
+        }
+
+
+
+    .dark-theme {
+        background-color: #15181f;
+        color: #e5e5e5;
+    }
+
+        .dark-theme #toggle01 {
+            background-color: white;
+        }
+
+            .dark-theme #toggle01::after {
+                background-color: transparent;
+                box-shadow: 10px 10px #15181f;
+                top: -4px;
+                left: 30px;
+            }
+</style>
+<script>
+const { checked } = require("modernizr");
+
+
+    document.getElementById("toggle01").addEventListener("click", function () {
+        document.getElementsByTagName('body')[0].classList.toggle01("dark-theme");
+
+
+    })-->
+@*var escuro = 0;
+    if (document.getElementById("toggle01").checked) {
+        escuro ++
+
+    }
+    if (escuro > 1) {
+        set.escuro = 0;
+    }
+    if (escuro == 1) {
+        document.cookie = 'escuro = 1', expires = "Thu, 1 Jan 2022 12: 00: 00 UTC";
+    } else if (escuro == 0) {
+        document.cookie = 'escuro = 0', expires = "Thu, 1 Jan 2022 12: 00: 00 UTC";
+    }*@
+
+
+
+
+<!--</script>-->

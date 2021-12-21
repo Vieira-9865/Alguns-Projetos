@@ -1,0 +1,34 @@
+﻿@model TestaBotao.Models.Donos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Donos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_Dono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_Dono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <input type="button" class="btn btn-success" value="Editar" onclick="location.href='@Url.Action("Edit", "Donos", new { id = Model.IdDono })'" /> |
+    <input type="button" class="btn btn-primary" value="Voltar" onclick="location.href='@Url.Action("Index", "Donos")'" />
+</p>

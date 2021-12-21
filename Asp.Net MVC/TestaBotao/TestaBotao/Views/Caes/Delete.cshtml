@@ -1,0 +1,65 @@
+﻿@model TestaBotao.Models.Caes
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deletar</h2>
+
+<h3>Você tem certeza que você quer deletar isso?</h3>
+<div>
+    <h4>Cães</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_Cao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_Cao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_Dono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_Dono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Raca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRaca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRaca)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+   
+    <input type="button" class="btn btn-primary" value="Voltar" onclick="location.href='@Url.Action("Index", "Caes")'" />
+</div>
+    }
+</div>

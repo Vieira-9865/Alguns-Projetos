@@ -1,0 +1,28 @@
+﻿@model TestaBotao.Models.Racas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Raças</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Raca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raca)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    <input type="button" class="btn btn-success" value="Editar" onclick="location.href='@Url.Action("Edit", "Racas", new { id = Model.IdRaca })'" /> |
+    <input type="button" class="btn btn-primary" value="Voltar" onclick="location.href='@Url.Action("Index", "Racas")'" />
+
+</p>
