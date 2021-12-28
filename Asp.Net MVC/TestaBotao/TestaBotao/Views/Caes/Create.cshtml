@@ -2,9 +2,10 @@
 
 @{
     ViewBag.Title = "Create";
+
 }
 
-<h2>Create</h2>
+<h2 class="aga2">Criar</h2>
 
 
 @using (Html.BeginForm())
@@ -52,6 +53,7 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
+    <input type="button" class="btn btn-primary" value="Voltar" onclick="location.href='@Url.Action("Index", "Caes")'" />
 </div>
 
 @section Scripts {

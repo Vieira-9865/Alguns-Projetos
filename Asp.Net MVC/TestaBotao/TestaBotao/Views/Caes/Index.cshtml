@@ -2,32 +2,17 @@
 
 @{
     ViewBag.Title = "Index";
+    @Styles.Render("~/Content/Site.css")
 }
-<style>
-    th {
-        font-size: 15px;
-    }
 
-    td {
-        font-size: 19px;
-    }
+<h2 class="aga2">Cadastro de Cães</h2>
 
-    p {
-        font-size: 17px;
-    }
-
-    h3 {
-        font-size: 19px;
-    }
-</style>
-<h2>Cadastro de Cães</h2>
-
-<p>
+<p class="pdrop">
     @*@Html.ActionLink("Adicionar novo cão", "Create")*@
     @*Vai ser um botão com a classe especifica do bootstrap como valor vai adicionar cão e clicando vai retornar a url que primeiro valor vai ser a ação
     e a outra vai ser o controlador*@
     <input type="button" class="btn btn-primary" value="Adicionar novo cão" onclick="location.href='@Url.Action("Create", "Caes")'" />
-    <h3>
+    <h3 class="aga3">
         Filtrar pela raça:<h3>
 
             @using (Html.BeginForm())
@@ -41,7 +26,7 @@
 
 
 <table class="table">
-    <tr>
+    <tr class="tbcao">
 
         <th>
             @Html.DisplayNameFor(model => model.Nome_Cao)

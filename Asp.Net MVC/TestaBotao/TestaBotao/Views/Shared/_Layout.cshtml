@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Site.css")
     @Scripts.Render("~/bundles/modernizr")
+    
 
 </head>
 <body class="corpo">
@@ -49,73 +51,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-<style>
 
-    header {
-        width: 100px;
-        height: 40px;
-        margin-bottom: 20px;
-    }
-
-    #toggle01 {
-        -webkit-appearance: none;
-        appearance: none;
-        height: 40px;
-        width: 75px;
-        background-color: black;
-        position: absolute;
-        right: 0;
-        border-radius: 20px;
-        cursor: pointer;
-        margin-right: 27px;
-        margin-top: 9px;
-    }
-
-        #toggle01:after {
-            content: "";
-            position: absolute;
-            height: 30px;
-            width: 30px;
-            background-color: #ffffff;
-            top: 5px;
-            left: 5px;
-            border-radius: 50%;
-        }
-
-    .corpo{
-        background-image: linear-gradient(to bottom, #e5e2f3, #4e50b6, #2312b8 90% );
-        background-attachment: fixed;
-        color:black;
-        
-    }
-
-    .darkmode  {
-        background-image: linear-gradient(to bottom, black, black, black 90% );
-        background-attachment: fixed;
-        color:white;
-        
-    }
-
-        .darkmode #toggle01 {
-            background-image: linear-gradient(to bottom, white, white, white 90% );
-        }
-
-            .darkmode #toggle01::after {
-                background-color: transparent;
-                box-shadow: 10px 10px black;
-                top: -4px;
-                left: 30px;
-            }
-
-        .darkmode .jumbotron {
-            color: white;
-            background: rgb(2,0,36);
-            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-        }
-    
-    
-      
-</style>
 
 <script>
 

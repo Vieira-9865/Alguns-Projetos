@@ -12,6 +12,7 @@ namespace TestaBotao.Models
 		[Key]
 
 		public int IdDono { get; set; }
+		[DisplayName ("Nome do Dono")]
 		public string Nome_Dono { get; set; }
 		public int Telefone { get; set; }
 
