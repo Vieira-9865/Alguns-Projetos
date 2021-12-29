@@ -16,7 +16,7 @@
         Filtrar pela raça:<h3>
 
             @using (Html.BeginForm())
-            {@Html.DropDownList("IdRacaFiltro", new SelectList(ViewBag.listaRacas, "IdRaca", "Raca"), "Selecione a raça", new { htmlAttributes = new { @class = "form-control" } })
+            {@Html.DropDownList("IdRacaFiltro", new SelectList(ViewBag.listaRacas, "IdRaca", "Raca"), "Selecione a raça", new { htmlAttributes = new { @class = "form-control" }, @class = "form-control largura" })
             <input type="submit" value="Filtrar" class="btn btn-primary" >}
             <!--O begin form vai servir para renderizar esse conteudo na view apenas quando rodar o código-->
             <!--Vai servir para  atualizar a página e não mudar as alterações e o value para o texto dentro do botão-->

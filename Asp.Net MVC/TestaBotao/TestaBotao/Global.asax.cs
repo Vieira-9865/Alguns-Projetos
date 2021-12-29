@@ -17,7 +17,7 @@ namespace TestaBotao
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-           /* Database.SetInitializer<Context.Context>(new DropCreateDatabaseIfModelChanges<Context.Context>());*/
+           Database.SetInitializer<Context.Context>(new DropCreateDatabaseIfModelChanges<Context.Context>());
         }
     }
 }

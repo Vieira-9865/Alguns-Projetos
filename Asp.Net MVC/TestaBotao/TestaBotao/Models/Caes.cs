@@ -23,5 +23,7 @@ namespace TestaBotao.Models
 		[DisplayName("Nome da raça")]
 		public int IdRaca { get; set; }
 
-	}
+	}   
+
+
 }
