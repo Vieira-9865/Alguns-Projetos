@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class checkpointapp {
+
+	public static void main(String[] args) {
+		Scanner scan =  new Scanner(System.in);
+		
+		ArrayList <checkpoint> lista;
+		checkpointpt02 check2 = new checkpointpt02();
+		
+		System.out.println( "M E N U");
+		System.out.println(" 1- Ver Lista de Pedidos");
+		System.out.println(" 2- Adicionar Pedido");
+		System.out.println(" 3- Atualizar Pedido ");
+		System.out.println(" 4- Remover um Pedido");
+		System.out.println(" 5- Listar Clientes");
+		System.out.println(" 6- Adicionar Clientes");
+		System.out.println(" 7-Atualizar Dados do Cliente");
+		System.out.println(" 8-Remover um Cliente");
+		System.out.println(" 9-Listar Pedidos do Cliente");
+		System.out.println(" 10-Cliente Número Um (Cliente que mais comprou combos)");
+		System.out.println(" 0- Sair");
+		
+		
+		System.out.println("Digite a opção desejada");
+		int opção = scan.nextInt();
+		while (opção != 10) {
+			
+			switch (opção) {
+			case 1:
+				System.out.println("**** Você escolheu a opção de Ver Lista de Pedidos******");
+				for (checkpoint pedido : lista) {
+		    		System.out.println("Todos os pedidos são esses: " + pedido.getPedidos());
+				}
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
+
+}
